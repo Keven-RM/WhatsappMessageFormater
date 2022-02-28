@@ -1,0 +1,119 @@
+body{
+    background-color: var(--primalBackground);
+}
+
+header{
+    height: 70px;
+    width: 100%;
+    background-color: var(--secondBackground);
+
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    font-size: 14pt;
+    border-bottom: 1px solid var(--secondBorderColor);
+    padding: 0 20px;
+}
+
+header .link{
+    width: 100px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+    text-decoration: none;
+    color: var(--fontColor);
+}
+
+header p{
+    width: 100%;
+    text-align: center;
+    font-size: 25px;
+    padding: auto 0;
+
+}
+
+section{
+    background-color: var(--primalBackground);
+}
+
+section ul{
+    padding: 10px 0;
+}
+
+section li {
+    display: flex;
+    flex-direction: row;
+
+    width: 100%;
+    padding: 0 10px;
+    margin: 20px 0;
+
+    font-family: 'Roboto', sans-serif;
+}
+
+.sender{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+}
+
+.reciever{
+    width: 100%;
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+.main_content_sender{
+    border-radius: 10px;
+    padding: 10px;
+    background-color: var(--backgroundMessageSender);
+}
+
+.main_content_reciever{
+    border-radius: 10px;
+    padding: 10px;
+    background-color: var(--backgroundMessageReciever);
+}
+
+.name_sender{
+    color: var(--primalFontColor);
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.name_reciever{
+    color: var(--primalFontColor);
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.content{
+    display: flex;
+    flex-direction: row;
+}
+
+.message{
+    min-width: 50px;
+    max-width: 300px;
+    margin-top: 4px;
+    margin-right: 3px;
+    color: var(--secondFontColor)
+}
+
+.hour{
+    display: flex;
+    flex-direction: column-reverse;
+    color: var(--thirdFontColor)
+}
+
+@media only screen and (min-width: 800px) {
+    section {
+        padding: 0 100px;
+    }
+
+    .message{
+        max-width: 500px;
+    }
+}
+  

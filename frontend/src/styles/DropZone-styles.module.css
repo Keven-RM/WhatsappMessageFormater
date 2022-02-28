@@ -1,0 +1,28 @@
+.uploadAreaBackground{
+    border: 5px solid var(--secondBackground);
+    border-radius: 4px;
+    margin-top: 30px;
+}
+
+.uploadArea{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    max-width: 400px;
+    width: 100%;
+    text-align: center;
+    padding: 3px 5px;
+
+    background: var(--secondBackground);
+    border: 2px dashed var(--primalBorderColor);
+    border-radius: 4px;
+    cursor: pointer;
+    
+    transition: height 0.2s ease;
+}
+
+.uploadMessage{
+    font-size: 12pt;
+    padding: 5px;
+}

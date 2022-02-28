@@ -1,0 +1,39 @@
+*{
+    box-sizing: border-box;
+    padding: 0;
+    outline: 0;
+    margin: 0;
+}
+
+:root{
+    --dragActive: #78e5d5;
+    --dragReject: #e57878;
+    --primalBackground: #E5E5E5;
+    --secondBackground: #FFF;
+    --thirdBackground: #2b2b2b;
+    --primalFontColor: #1A141F;
+    --secondFontColor: #161616;
+    --thirdFontColor: #303030a4;
+    --primalBorderColor: #0000ff;
+    --secondBorderColor: #b4b4b4;
+    --backgroundMessageReciever: #7eff6a    ; 
+    --backgroundMessageSender: #fafafa;
+    --fontColorReciever: #e9c705; 
+    --fontColorSender: #3bddfa;
+}
+
+body{
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+}
+
+html, body, #root, .App{
+    height: 100%;
+    width: 100%;
+}
+
+.App{
+    position: relative;
+}
