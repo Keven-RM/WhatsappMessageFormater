@@ -21,14 +21,10 @@ const Chat = () => {
     const [chatName, setChatName] = useState<String>(chatContent.FileName);
     
     const findSender = () => {
-       if(chatContent.chat[1].name !== ''){
-           setSender(String(chatContent.chat[0].name))
-       }
-
         for (let i = 0; i < list.length; i++) {
             if (chatContent.chat[i].name != '') {
                 setSender(String(chatContent.chat[i].name))
-                break; 
+                break;
             }
         }
     }
@@ -40,8 +36,9 @@ const Chat = () => {
 
         toPng(ref.current, { cacheBust: true, })
         .then((dataUrl) => {
+            var name = chatName.slice(0,-4)
             const link = document.createElement('a')
-            link.download = `${chatName}.png`
+            link.download = `${name}.png`
             link.href = dataUrl
             link.click()
         })
@@ -51,9 +48,11 @@ const Chat = () => {
     }, [ref])
 
     useEffect( () => {
-        return setList(chatContent.chat), findSender()
+        setList(chatContent.chat)
     },[])
-    
+
+    useEffect(() => findSender(), [list])
+
     return(
         <>
         <header className={styles.header}>
