@@ -1,9 +1,11 @@
 import express from 'express'
 import multer from 'multer'
 import path from 'path'
-//funtions
+
+//funtion
 import render_chat   from '../functions/RenderChat'
 
+//Config
 import Config from '../config'
 
 const router = express.Router()

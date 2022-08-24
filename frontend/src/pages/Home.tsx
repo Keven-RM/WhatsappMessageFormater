@@ -11,7 +11,7 @@ const Home = () => {
                 <h1>Bem vindo <br></br>ao <br></br> Message formater</h1>
             </div>
             <div>
-                <p className={styles.description}>Aqui você pode vizualizar a sua conversa do whatsapp exportada como no app, tambem exportala em pdf e salva-la.</p>
+                <p className={styles.description}>Aqui você pode vizualizar a sua conversa igual ao whatsapp e tambem salva-la em uma imagem.</p>
             </div>
             <ContainerZone />
         </main>

@@ -1,16 +1,15 @@
 import multer   from "multer"
 import path     from "path"
 import crypto   from "crypto"
+import fs       from "fs"
 
-// const dir = path.resolve(__dirname, "..", "..", "src", "upload");
-const dir = path.resolve('/', 'tmp')
+const dir = path.resolve('src', 'data')
 
 const Config = {
-  dest: './tmp/',
-    storage: multer.diskStorage({
-    // destination: (req, file, cb) => {
-    //   cb(null, './tmp/');
-    // },
+  storage: multer.diskStorage({
+    destination: (req, file, cb) => {
+      cb(null, dir);
+    },
     filename: (req, file, cb) => {
       crypto.randomBytes(16, (err, hash) => {
         if (err) return cb(err, __filename);
@@ -20,19 +19,18 @@ const Config = {
         cb(null, file.filename);
       });
     }
-  }),
-
+  })
 };
 
-const MulterConfig = () => {
-  // if (!fs.existsSync(dir)){
-  //     fs.mkdirSync(dir);
-  //     return Config;
-  // }else{
-  //   return Config;
-  // }
-
-  return Config;
+const CheckFolder = () => {
+  if (!fs.existsSync(dir)){
+    fs.mkdirSync(dir);
+    return Config;  
+  }else{
+    return Config;  
+  }
 }
+
+CheckFolder()
 
 export default Config;

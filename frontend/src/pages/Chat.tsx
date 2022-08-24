@@ -7,8 +7,8 @@ import { BsArrowLeft, BsDownload } from 'react-icons/bs';
 import { List } from '../types'
 
 interface ChatContent {
+    filename: String;
     chat: List[];
-    FileName: String;
 }
 
 const Chat = () => {
@@ -18,7 +18,7 @@ const Chat = () => {
     
     const [list, setList] = useState<List[]>([]);
     const [sender, setSender] = useState<String>('');
-    const [chatName, setChatName] = useState<String>(chatContent.FileName);
+    const [chatName, setChatName] = useState<String>(chatContent.filename);
     
     const findSender = () => {
         for (let i = 0; i < list.length; i++) {
@@ -29,7 +29,7 @@ const Chat = () => {
         }
     }
 
-    const saveToPDF = useCallback(() => {
+    const saveToPng = useCallback(() => {
         if (ref.current === null) {
         return
         }
@@ -47,11 +47,14 @@ const Chat = () => {
         })
     }, [ref])
 
+
     useEffect( () => {
         setList(chatContent.chat)
     },[])
 
-    useEffect(() => findSender(), [list])
+    useEffect(() => {
+        findSender()
+    }, [list])
 
     return(
         <>
@@ -62,9 +65,8 @@ const Chat = () => {
             </Link>
             <p>{chatName}</p>
 
-            <BsDownload size={30} style={{cursor: "pointer"}} onClick={() => saveToPDF()}/>
+           <BsDownload size={30} style={{cursor: "pointer"}} onClick={() => saveToPng()}/>        
         </header>
-
         <section className={styles.section} ref={ref}>
             <ul>
                 {list != [] || null
