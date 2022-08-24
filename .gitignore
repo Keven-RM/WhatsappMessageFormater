@@ -1,2 +1,8 @@
+.DS_Store
+data
+dist
+dist-ssr
+*.local
 node_modules
+package-lock.json
 .gitignore
