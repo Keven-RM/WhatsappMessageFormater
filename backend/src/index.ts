@@ -12,9 +12,10 @@ const app = express();
 app.use(cors());
 app.use(router);
 app.use(express.json());
+app.use(express.static(__dirname+'/data'));
 app.use(express.urlencoded({ extended: true }));
 
 app.listen(process.env.PORT || 8080);
 
 
-console.log("> Online"); 
+console.log("> Online");
