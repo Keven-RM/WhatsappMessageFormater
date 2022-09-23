@@ -1,8 +1,14 @@
-type ListContent  = {
-    "date": String | null, 
-    "hour": String | null, 
-    "name": String | null, 
-    "message": String
+export interface ListContent {
+    "date": string | null, 
+    "hour": string | null, 
+    "name": string | null, 
+    "message": string,
+    "type": string,
+    "imgURL"?: string
 }
 
-export default ListContent;
+export interface Img {
+    id: number,
+    name: string,
+    url: string
+}

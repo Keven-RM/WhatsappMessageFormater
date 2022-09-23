@@ -1,4 +1,4 @@
-function extract_date(content: String){        
+function extract_date(content: string){        
     const regex = /[0-9]/;
 
     if(regex.test( content.slice(0, 9)) && regex.test( content.slice(11, 15) ) && content[17] == '-' ){
@@ -12,7 +12,7 @@ function extract_date(content: String){
     }
 }
 
-function extract_name(content: String){
+function extract_name(content: string){
     if (content.indexOf('-') == 17 && content.indexOf(':') > -1) {
 
         const begin = (content.search(/-/) - (-2));
@@ -25,7 +25,7 @@ function extract_name(content: String){
     }
 }
 
-function extract_message(content: String){
+function extract_message(content: string){
     if(content.indexOf('-') == 17 && content.indexOf(':') > -1) {
 
         const starting_point  = (content.indexOf(": ") + 2);
@@ -37,16 +37,18 @@ function extract_message(content: String){
     }
 }
 
-function format_message(message: String){
+function format_message(message: string){
     const full_date       = extract_date(message);
     const name            = extract_name(message);
     const message_content = extract_message(message);
+    const message_type = message_content == '<Arquivo de mídia oculto>' ? "midia" : "text"
 
     return { 
         "date": full_date.date, 
         "hour": full_date.hour, 
         "name": name, 
-        "message": message_content 
+        "type": message_type,
+        "message": message_content
     };
 }
 

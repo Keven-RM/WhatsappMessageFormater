@@ -6,16 +6,13 @@ import path from 'path'
 import render_chat   from '../functions/RenderChat'
 
 //Config
-import Config from '../config'
+import upload from '../config'
 
 const router = express.Router()
 
-router.post('/', multer(Config).single('arq'), (req, res) => {
-  res.redirect(`/get-chat/${req.file?.filename}`)
-})
-
-router.get('/get-chat/:file_name', async (req, res) => {
-  res.send(await render_chat(req.params.file_name))
+router.post('/', upload(), async (req, res) => {
+  const { destination, originalname } = req.files?.archive[0]
+  res.send(await render_chat(destination, originalname))
 })
 
 export default router;

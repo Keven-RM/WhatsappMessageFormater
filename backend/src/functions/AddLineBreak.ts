@@ -1,8 +1,7 @@
 //types
-import ListContent from "../types/index"
+import { ListContent } from "../types/index"
 
-
-function export_messages_list(list: Array<ListContent>){
+function AddLineBreak(list: Array<ListContent>){
 
     const message_list: Array<ListContent> = [];
     var last_message: ListContent;
@@ -21,4 +20,4 @@ function export_messages_list(list: Array<ListContent>){
     return message_list
 }
 
-export default export_messages_list;
+export default AddLineBreak;
